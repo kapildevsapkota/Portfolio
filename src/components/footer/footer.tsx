@@ -60,7 +60,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t">
         <div className="container py-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Kapil Dev Sapkota. All rights reserved.
+          © {new Date().getFullYear()} KapilDevSapkota. All rights reserved.
         </div>
       </div>
     </footer>
