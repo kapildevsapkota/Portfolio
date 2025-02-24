@@ -51,6 +51,7 @@ export function SiteHeader() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
+            <div className="sr-only">Navigation Menu</div>
             <nav className="flex flex-col gap-4">
               {navigation.map((item) => (
                 <Link

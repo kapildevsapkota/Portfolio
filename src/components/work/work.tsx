@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import Image from "next/image";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const categories = [
   { id: "all", label: "ALL" },
@@ -13,7 +13,7 @@ const categories = [
   { id: "new", label: "NEW" },
   { id: "print", label: "PRINT" },
   { id: "3d", label: "3D WORK" },
-]
+];
 
 const projects = [
   {
@@ -23,7 +23,7 @@ const projects = [
     image: "/kutumba.png",
     link: "https://dev.kutumbabazar.com/",
   },
-    {
+  {
     id: 5,
     title: "BIRAT EXPO",
     category: ["design", "new"],
@@ -59,15 +59,19 @@ const projects = [
     image: "/mdmu.png",
     link: "https://mdmu.vercel.app/",
   },
-]
+];
 
 export function PortfolioSection() {
-  const [selectedCategory, setSelectedCategory] = useState("all")
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const filteredProjects = projects.filter(
-    (project) => selectedCategory === "all" || project.category.includes(selectedCategory),
-  )
+    (project) =>
+      selectedCategory === "all" || project.category.includes(selectedCategory)
+  );
 
   return (
     <section id="portfolio" className="container py-24 md:py-32 mx-auto">
@@ -84,7 +88,9 @@ export function PortfolioSection() {
             variant="ghost"
             className={cn(
               "text-sm font-medium",
-              selectedCategory === category.id ? "text-primary bg-muted" : "text-muted-foreground",
+              selectedCategory === category.id
+                ? "text-primary bg-muted"
+                : "text-muted-foreground"
             )}
             onClick={() => setSelectedCategory(category.id)}
           >
@@ -93,24 +99,38 @@ export function PortfolioSection() {
         ))}
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project) => (
-          <div key={project.id} className="group relative aspect-square bg-muted overflow-hidden rounded-lg shadow-md">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />  
+      {/* Updated Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        {filteredProjects.map((project, index) => (
+          <div
+            key={project.id}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            className={cn(
+              "relative aspect-square rounded-lg overflow-hidden transition-all duration-300 ease-out",
+              hoveredIndex !== null &&
+                hoveredIndex !== index &&
+                "blur-sm scale-[0.98]"
+            )}
+          >
             <Image
-              src={project.image || "/placeholder.svg"}
+              src={project.image}
               alt={project.title}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-110"
+              className="object-cover"
             />
             <div
-              className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center"
-              onClick={() => setSelectedProject(project)}
+              className={cn(
+                "absolute inset-0 bg-black/50 flex flex-col items-center justify-center gap-4 transition-opacity duration-300",
+                hoveredIndex === index ? "opacity-100" : "opacity-0"
+              )}
             >
+              <div className="text-xl md:text-2xl font-medium text-white">
+                {project.title}
+              </div>
               <Button
                 variant="outline"
-                className=""
+                className="text-black border-white hover:bg-white hover:text-black"
                 onClick={() => window.open(project.link, "_blank")}
               >
                 View Project
@@ -121,7 +141,10 @@ export function PortfolioSection() {
       </div>
 
       {/* Project Modal */}
-      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+      <Dialog
+        open={!!selectedProject}
+        onOpenChange={() => setSelectedProject(null)}
+      >
         <DialogContent className="max-w-2xl">
           {selectedProject && (
             <div className="space-y-4">
@@ -134,8 +157,13 @@ export function PortfolioSection() {
                 />
               </div>
               <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
-              <p className="text-muted-foreground">Category: {selectedProject.category.join(", ")}</p>
-              <Button className="w-full" onClick={() => window.open(selectedProject.link, "_blank")}>
+              <p className="text-muted-foreground">
+                Category: {selectedProject.category.join(", ")}
+              </p>
+              <Button
+                className="w-full"
+                onClick={() => window.open(selectedProject.link, "_blank")}
+              >
                 Visit Project
               </Button>
             </div>
@@ -143,6 +171,5 @@ export function PortfolioSection() {
         </DialogContent>
       </Dialog>
     </section>
-  )
+  );
 }
-
