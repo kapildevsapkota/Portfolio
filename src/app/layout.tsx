@@ -1,13 +1,11 @@
-import "@/app/globals.css"
+import "@/app/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"
-import { SiteHeader } from "@/components/hero/site-hero"
-import type React from "react" // Added import for React  
-import { SiteFooter } from "@/components/footer/footer"
-import Container from "@/components/responsive";
+import { Inter } from "next/font/google";
+import { SiteHeader } from "@/components/hero/site-hero";
+import type React from "react"; // Added import for React
+import { SiteFooter } from "@/components/footer/footer";
 
-
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Kapil Dev Sapkota",
@@ -17,18 +15,16 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Container>
         <SiteHeader />
-        
+
         {children}
         <SiteFooter />
-        </Container>
       </body>
     </html>
-  )
+  );
 }

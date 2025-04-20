@@ -22,12 +22,12 @@ export function SiteHeader() {
           alt="Portrait"
           width={90}
           height={100}
-          className="backdrop-grayscale-[1] hidden md:block"
+          className="backdrop-grayscale-[1] hidden md:block mx-28"
           priority
         />
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex md:gap-10">
+        <nav className="hidden md:flex md:gap-10 ml-auto">
           {navigation.map((item) => (
             <Link
               key={item.name}

@@ -7,25 +7,25 @@ const services = [
     icon: Code,
     title: "DEVELOPMENT",
     description:
-      "There are many variations of passages of Lorm available, but in some form",
+      "Building robust and scalable applications tailored to your needs.",
   },
   {
     icon: Monitor,
     title: "UI/UX DESIGN",
     description:
-      "There are many variations of passages of Lorm available, but in some form",
+      "Creating intuitive and engaging user experiences that captivate users.",
   },
   {
     icon: Heart,
     title: "WEB DESIGN",
     description:
-      "There are many variations of passages of Lorm available, but in some form",
+      "Designing visually appealing and functional websites that stand out.",
   },
   {
     icon: Settings,
     title: "MINIMAL DESIGN",
     description:
-      "There are many variations of passages of Lorm available, but in some form",
+      "Focusing on simplicity and elegance to enhance user interaction.",
   },
 ];
 
