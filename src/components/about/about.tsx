@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const skills = [
   { name: "NEXT JS", progress: 90 },
   { name: "TYPESCRIPT", progress: 85 },
   { name: "NODE JS", progress: 90 },
-]
+];
 
 export function AboutSection() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <section id="about" className="container md:py-32 mx-auto" ref={ref}>
@@ -42,18 +42,28 @@ export function AboutSection() {
         >
           <h3 className="text-2xl font-bold">Howdy!</h3>
           <p className="text-muted-foreground">
-            I&apos;m a passionate front-end developer with a strong focus on creating clean, responsive, and
-            user-friendly websites. With expertise in HTML, CSS, JavaScript, and modern frameworks like React and Vue, I
-            strive to build seamless and intuitive user experiences. I&apos;m always eager to stay up-to-date with the
-            latest trends and tools in web development to ensure my projects are both visually appealing and functional.
+            I&apos;m a passionate front-end developer with a strong focus on
+            creating clean, responsive, and user-friendly websites. With
+            expertise in HTML, CSS, JavaScript, and modern frameworks like React
+            and Vue, I strive to build seamless and intuitive user experiences.
+            I&apos;m always eager to stay up-to-date with the latest trends and
+            tools in web development to ensure my projects are both visually
+            appealing and functional.
           </p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <a href="/my-cv.pdf" download className="inline-block">
-              <Button variant="default" className="bg-zinc-800 text-white hover:bg-zinc-700">
+            <a
+              href="/KapilDevSapkotaResume.pdf"
+              download
+              className="inline-block"
+            >
+              <Button
+                variant="default"
+                className="bg-zinc-800 text-white hover:bg-zinc-700"
+              >
                 DOWNLOAD MY CV
               </Button>
             </a>
@@ -95,6 +105,5 @@ export function AboutSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

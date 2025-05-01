@@ -28,14 +28,14 @@ const projects = [
     title: "YETIPM",
     category: ["design", "new"],
     image: "/yetipm.png",
-    link: "yetipm.com",
+    link: "https://yetipm.com/",
   },
   {
     id: 2,
-    title: "QHSEF",
+    title: "Sikchu",
     category: ["design", "print"],
-    image: "/qhsef.png",
-    link: "https://birat-expo-all.vercel.app/qhsef",
+    image: "/sikchu.png",
+    link: "https://www.sikchu.com/",
   },
   {
     id: 3,
