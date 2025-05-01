@@ -25,10 +25,10 @@ const projects = [
   },
   {
     id: 5,
-    title: "BIRAT EXPO",
+    title: "YETIPM",
     category: ["design", "new"],
-    image: "/birat.png",
-    link: "https://biratexpo.cim.org.np/",
+    image: "/yetipm.png",
+    link: "yetipm.com",
   },
   {
     id: 2,
