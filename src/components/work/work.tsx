@@ -32,17 +32,17 @@ const projects = [
   },
   {
     id: 2,
-    title: "JOBBRIZ",
+    title: "QHSEF",
     category: ["design", "print"],
-    image: "/jobbriz.png",
-    link: "https://jobbriz-fe.vercel.app/",
+    image: "/qhsef.png",
+    link: "https://birat-expo-all.vercel.app/qhsef",
   },
   {
     id: 3,
     title: "B2B BIRAT BAJAR",
     category: ["3d", "design"],
     image: "/b2b.png",
-    link: "https://b2b-fe-eta.vercel.app/",
+    link: "https://birat-expo-all.vercel.app/b2b",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const projects = [
     title: "MDMU",
     category: ["design", "print"],
     image: "/mdmu.png",
-    link: "https://mdmu.vercel.app/",
+    link: "https://birat-expo-all.vercel.app/mdmu",
   },
 ];
 
