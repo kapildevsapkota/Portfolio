@@ -21,7 +21,7 @@ const projects = [
     title: "KUTUMBA BAZAR",
     category: ["design", "new"],
     image: "/kutumba.png",
-    link: "https://dev.kutumbabazar.com/",
+    link: "https://www.kutumbabazar.com/",
   },
   {
     id: 5,
