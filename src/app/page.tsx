@@ -8,19 +8,14 @@ import { ContactSection } from "@/components/contact/contact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* Responsive Container */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-20">
-        <div className="max-w-7xl">
-          <HeroSection />
-          <AboutSection />
-          <ExperienceSection />
-          <PortfolioSection />
-          <ServicesSection />
-          <BlogSection />
-          <ContactSection />
-        </div>
-      </div>
+    <main>
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <PortfolioSection />
+      <ServicesSection />
+      <BlogSection />
+      <ContactSection />
     </main>
   );
 }
