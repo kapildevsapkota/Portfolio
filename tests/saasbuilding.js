@@ -57,7 +57,7 @@ const saasBuildBlog = {
         alt: "Startup team in a standup meeting reviewing feedback and metrics on a screen",
         caption:
           "When customers see their feedback shipped, trust compounds — and so does retention",
-        placement: "after-section-6",
+        placement: "after-section",
       },
     ],
   },
