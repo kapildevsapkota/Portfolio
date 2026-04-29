@@ -20,7 +20,7 @@ const saasBuildBlog = {
       "SaaS startup build",
       "product roadmap feedback",
     ],
-    author: "Maya Thornton",
+    author: "Kapil Dev Sapkota",
     publishedAt: "2025-04-29",
     readTime: "10 min read",
     category: "Product Development & Startup Execution",
