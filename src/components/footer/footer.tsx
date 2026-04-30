@@ -1,9 +1,44 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { Github, Twitter, Linkedin } from "lucide-react";
+import {
+  Github,
+  Twitter,
+  Linkedin,
+  Loader2,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export function SiteFooter() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      setStatus("success");
+      setEmail("");
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <footer className="border-t">
       <div className="container py-12 mx-auto">
@@ -72,15 +107,44 @@ export function SiteFooter() {
 
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Newsletter</h3>
-            <form className="flex gap-2">
-              <Input placeholder="Enter your email" type="email" />
-              <Button type="submit">Subscribe</Button>
+            <form onSubmit={handleSubscribe} className="flex gap-2">
+              <Input
+                placeholder="Enter your email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={status === "loading" || status === "success"}
+              />
+              <Button
+                type="submit"
+                disabled={status === "loading" || status === "success"}
+              >
+                {status === "loading" ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  "Subscribe"
+                )}
+              </Button>
             </form>
+
+            {status === "success" && (
+              <p className="flex items-center gap-1 text-xs text-green-600">
+                <CheckCircle className="w-3 h-3" /> Subscribed!
+              </p>
+            )}
+            {status === "error" && (
+              <p className="flex items-center gap-1 text-xs text-red-500">
+                <AlertCircle className="w-3 h-3" /> Something went wrong. Try
+                again.
+              </p>
+            )}
           </div>
         </div>
       </div>
+
       <div className="border-t">
-        <div className=" ml-20 container py-6 text-center text-sm text-muted-foreground">
+        <div className="ml-20 container py-6 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} KapilDevSapkota. All rights reserved.
         </div>
       </div>

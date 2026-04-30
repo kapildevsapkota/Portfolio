@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
@@ -36,7 +36,9 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          Front-end developer focused on crafting clean, responsive, and user-friendly web experiences.
+          Software engineer building scalable, high-performance web applications
+          and SaaS products with a focus on clean architecture, performance, and
+          user experience.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,6 +66,5 @@ export function HeroSection() {
         />
       </motion.div>
     </section>
-  )
+  );
 }
-
